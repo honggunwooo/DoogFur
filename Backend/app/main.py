@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 
 from app.routers import login
 from app.routers import register
+from app.routers import post
 from app.routers import health
 from app.database import Base, engine
 
@@ -17,6 +18,8 @@ Base.metadata.create_all(bind=engine)
 app.include_router(login.router)
 app.include_router(register.router)
 app.include_router(health.router)
+app.include_router(post.router)
+
 
 @app.get("/")
 def home():
